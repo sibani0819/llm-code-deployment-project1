@@ -16,6 +16,11 @@ VERIFICATION_SECRET = os.getenv("VERIFICATION_SECRET")
 
 openai.api_key = LLM_API_KEY
 
+@app.get("/ping")
+def ping():
+    return {"message": "pong"}
+
+
 @app.post("/task")
 async def handle_task(request: Request):
     data = await request.json()
